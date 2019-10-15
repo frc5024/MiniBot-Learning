@@ -13,8 +13,8 @@ import frc.robot.Robot;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class ExampleCommand extends Command {
-  public ExampleCommand() {
+public class DriveControl extends Command {
+  public DriveControl() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_subsystem);
   }
@@ -27,6 +27,10 @@ public class ExampleCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+     double speed = Robot.m_oi.getThrottle();
+     double rotation = Robot.m_oi.getTurn();
+     Robot.m_driveTrain.arcadeDrive(speed, rotation);
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
